@@ -51,6 +51,8 @@ $(document).ready(function (event) {
                     console.log(data.message);
 
                     $('#myLink').html('<a id="key_link" href="data:text/plain;charset=utf-8,%EF%BB%BF' + encodeURIComponent(data_file.file_to_write) + '"download="text.txt">text.txt</a>');
+                    $('#key_link').text(`${login}.txt`);
+                    $('#key_link').attr('download', `${login}.txt`);
                     $('#key_link').click(function(event){
                          document.location.href = '/login/';
                     });
