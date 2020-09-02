@@ -1,0 +1,25 @@
+{% extends "base_page.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    {% load static %}
+    <div id="dialogs-title">
+        <span>Переводы</span>
+    </div>
+    <div id="dialogs-list">
+        <div class="create_dialog">
+           <form method="post">{% csrf_token %}
+                <p>Введите адрес отправителя</p>
+                <input type="text" name="to" id="se_address">
+                <p>Введите адрес получателя</p>
+                <input type="text" name="to" id="re_address">
+                <p>Введите приватный ключ</p>
+                <input type="text" name="private_key" id="private_key">
+                <p>Количество</p>
+                <input type="text" name="amount" id="amount">
+                <input type="submit" name="submit" id="transfer" value="Перевести">
+            </form>
+
+        </div>
+    </div>
+    <script src="{% static 'js/transactions.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_page.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    {% load static %}
+    <div id="dialogs-title">
+        <span>Настройки</span>
+    </div>
+    <div id="dialogs-list">
+        <div class="create_dialog">
+           <form method="post">{% csrf_token %}
+                <p>Файл</p>
+                <input type="file" name="to" id="key_file">
+                <p>Пароль</p>
+                <input type="password" name="to" id="file_pass">
+                <input type="submit" name="submit" id="get_key" value="Получить ключ">
+            </form>
+            <div id="myKey"></div>
+        </div>
+    </div>
+    <script src="{% static 'js/settings.js' %}"></script>
+{% endblock %}

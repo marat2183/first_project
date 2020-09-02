@@ -1,0 +1,9 @@
+{% for i in Dialogs %}
+    <div class="dialog">
+        {% if user_login.login == i.reciever %}
+            <div class="title-text-dialogs"><a href="/dialogs?did={{ i.did }}">Диалог с {{ i.sender }}</a></div>
+        {% else %}
+            <div class="title-text-dialogs"><a href="/dialogs?did={{ i.did }}">Диалог с {{ i.reciever }}</a></div>
+        {% endif %}
+    </div>
+{% endfor %}

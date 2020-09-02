@@ -1,0 +1,24 @@
+{% extends "base_page.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <div id="dialogs-title">
+        <span>Ваши диалоги</span>
+        <div id="new-dialog-container">
+            <a href="{% url 'create_dialog' %}">+</a>
+        </div>
+    </div>
+    <div id="dialogs-list">
+        {% for i in Dialogs %}
+            <div class="dialog">
+                {% if user_login.login == i.reciever %}
+                    <div class="title-text-dialogs"><a href="/dialogs?did={{ i.did }}">Диалог с {{ i.sender }}</a></div>
+                {% else %}
+                    <div class="title-text-dialogs"><a href="/dialogs?did={{ i.did }}">Диалог с {{ i.reciever }}</a></div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <script src="{% static 'js/cr_d.js' %}"></script>
+
+{% endblock %}
