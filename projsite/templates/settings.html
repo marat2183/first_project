@@ -6,16 +6,17 @@
         <span>Настройки</span>
     </div>
     <div id="dialogs-list">
-        <div class="create_dialog">
+        <div class="settings_form">
            <form method="post">{% csrf_token %}
                 <p>Файл</p>
                 <input type="file" name="to" id="key_file">
                 <p>Пароль</p>
                 <input type="password" name="to" id="file_pass">
-                <input type="submit" name="submit" id="get_key" value="Получить ключ">
+               <button id="get_key">Получить ключ</button>
             </form>
             <div id="myKey"></div>
         </div>
     </div>
+    <div id="footer-form"></div>
     <script src="{% static 'js/settings.js' %}"></script>
 {% endblock %}

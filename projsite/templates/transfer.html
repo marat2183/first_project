@@ -6,7 +6,7 @@
         <span>Переводы</span>
     </div>
     <div id="dialogs-list">
-        <div class="create_dialog">
+        <div class="transaction_form">
            <form method="post">{% csrf_token %}
                 <p>Введите адрес отправителя</p>
                 <input type="text" name="to" id="se_address">
@@ -16,10 +16,11 @@
                 <input type="text" name="private_key" id="private_key">
                 <p>Количество</p>
                 <input type="text" name="amount" id="amount">
-                <input type="submit" name="submit" id="transfer" value="Перевести">
+               <button id="transfer">Перевести</button>
             </form>
 
         </div>
     </div>
+    <div id="footer-form"></div>
     <script src="{% static 'js/transactions.js' %}"></script>
 {% endblock %}

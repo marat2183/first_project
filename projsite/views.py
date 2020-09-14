@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from .forms import TestForm
 import re
 import json
 import hashlib
@@ -70,16 +71,8 @@ def getBalance(user_address):
     return result
 # @require_GET
 def index(request):
-    # if request.method == "POST":
-    #     email = request.POST['email']
-    #     send_mail(
-    #         'Hello',
-    #         'Welcome to site',
-    #         'crypto.messanger2020@gmail.com',
-    #         [f'{email}', ],
-    #         fail_silently=False
-    #     )
-    return render(request, template_name='test.html', context={"title": 'Главная'})
+    form = TestForm()
+    return render(request, template_name='test.html', context={"title": 'Главная', "form": form})
 
 
 def validate_data(login, password, second_password):
@@ -249,8 +242,10 @@ def dialogs(request):
                 res = Dialogs.objects.filter(
                     (Q(sender=user_login)) | (Q(reciever=user_login))
                 )
+                # print('данные', len(res))
                 for i in res:
                     i.did = str(i.did)
+                # print(res[0].sender, res[0].last_mes())
                 return render(request, template_name='dialogs.html',
                               context={"title": 'Диалоги', "user_login": user_login, "Dialogs": res, "balance": balance})
             else:

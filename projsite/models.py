@@ -10,16 +10,6 @@ class Users(models.Model):
     def __str__(self):
         return self.login
 
-
-class Dialogs(models.Model):
-    did = models.AutoField(primary_key=True)
-    sender = models.CharField(max_length=25)
-    reciever = models.CharField(max_length=25)
-
-    def __str__(self):
-        return self.sender
-
-
 class Messages(models.Model):
     did = models.PositiveIntegerField()
     sender = models.CharField(max_length=25, default='None')
@@ -28,4 +18,20 @@ class Messages(models.Model):
 
     def __str__(self):
         return self.sender
+
+
+class Dialogs(models.Model):
+    did = models.AutoField(primary_key=True)
+    sender = models.CharField(max_length=25)
+    reciever = models.CharField(max_length=25)
+
+    def last_mes(self, *args, **kwargs):
+        mes = Messages.objects.filter(did=self.did)
+        lenght = len(mes)
+        return mes[lenght - 1].text
+
+    def __str__(self):
+        return self.sender
+
+
 

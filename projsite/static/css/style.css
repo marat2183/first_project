@@ -1,0 +1,29 @@
+body{
+    /*background-color: #D3D3D3;*/
+}
+.reg_form{
+	height: 100vh;
+}
+#reg_data_send{
+	margin-top: 35px;
+	background-color: darkviolet;
+    border-color: darkviolet;
+}
+#reg_data_send:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(154, 18, 179, 0.3);
+}
+#log_link{
+    color: darkviolet;
+}
+
+#confirm_password_form_invalid, #login_form_invalid, #password_form_invalid, #form_invalid {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}
+#myLink{
+    text-align: center;
+}
+

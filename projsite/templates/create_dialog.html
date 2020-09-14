@@ -9,13 +9,14 @@
         </div>
     </div>
     <div id="dialogs-list">
-        <div class="create_dialog">
+        <div class="create_dialog settings_form">
            <form method="post">{% csrf_token %}
                 <p>Введите логин собеседника</p>
                 <input type="text" name="reciever" id="reciever">
-                <input type="submit" name="submit" id="send_create_dialog" value="Cоздать">
+                <button id="send_create_dialog">Cоздать</button>
             </form>
         </div>
     </div>
+    <div id="footer-form"></div>
     <script src="{% static 'js/load_dialogs.js' %}"></script>
 {% endblock %}

@@ -51,12 +51,29 @@ $(document).ready(function () {
             data: {to_do: 'load_messages'},
             success: function (code) {
                 $('#dialog').remove()
-                $('#dialogs-list').html(code)
+                if (code !== $('#dialogs-list').html()){
+                    $('#dialog').remove()
+                    $('#dialogs-list').html(code)
+                    $("#dialogs-list").scrollTop($("#dialogs-list").prop('scrollHeight'));
+                }
+                // else{
+                //     console.log('не совпадает')
+                //     console.log('current')
+                //     console.log($('#dialogs-list').html())
+                //     // newMes = code.replace($('#dialogs-list').html(), '')
+                //     // console.log('new')
+                //     // console.log(newMes)
+                //     console.log(code)
+                //     $('#dialogs-list').html(code)
+                // }
+                // $('#dialogs-list').html(code)
+                // $("#dialogs-list").scrollTop($("#dialogs-list").prop('scrollHeight'));
                 console.log('ok')
             }
         });
         updateBalance()
     }
+    load_message()
     $('#send_message').click(function (event) {
         event.preventDefault();
         let currentLocation = window.location.href.toString().split(window.location.host)[1];

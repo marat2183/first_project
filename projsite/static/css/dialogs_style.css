@@ -6,6 +6,7 @@
 
 html,
 body {
+    background-color: #D3D3D3;
     height: 100%;
 }
 a{
@@ -23,13 +24,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-#name-container{
-    color: #ddd;
-    font-size: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 #menu-container {
     display: grid;
     grid:
@@ -46,32 +41,20 @@ body {
     border-radius: 10px;
 }
 
-#name-container,
-#menu-list,
-#exit-link-container {
-    background: #0048AA;
-}
+
 #name-container{
+    background-color: #3f3f3f;
     color: #ddd;
     font-size: 2.5rem;
     display: block;
     text-align: center;
     justify-content: center;
-    border-bottom: 1px solid #002C88;
+    border-bottom: 1px solid #3f3f3f;
     border-radius: 10px 0 0 0;
 }
-/*#name-container {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    grid-area: name-container;*/
-/*    padding: 0 20px;*/
-/*    border-radius: 10px 0 0 0;*/
-/*    box-shadow: 0 1px 3px -1px rgba(0,0,0, 0.75);*/
-/*    z-index: 1;*/
-/*}*/
-
 
 #menu-list {
+    background-color: #545454;
     grid-area: menu-list;
     overflow-y: scroll;
 }
@@ -80,13 +63,14 @@ body {
     display: grid;
     color: #ddd;
     font-size: 1.3rem;
-    border-bottom: 1px solid #002C88;
+    border-bottom: 1px solid #3f3f3f;
     padding: 20px 20px 20px 15px;
 }
 
+
 .menu.active,
 .menu:hover {
-    background: #002C88;
+    background: blueviolet;
 }
 
 .menu:hover {
@@ -137,6 +121,7 @@ body {
 
 #exit-link-container {
     display: flex;
+    background-color: #545454;
     align-items: center;
     grid-area: exit-link-container;
     border-top: 1px solid rgba(0,0,0, 0.25);
@@ -151,24 +136,30 @@ body {
     width: 100px;
     height: 40px;
     background: #eee;
-    border-radius: 15%;
-    color: #002C88;
+    border-radius: 15px;
+    color: black;
     text-decoration: none;
     font-size: 2.6rem;
 }
+#exit-link-container a:hover{
+    background-color: blueviolet;
+    color: white;
+    border: 0.1px solid black;
+}
 
-#dialogs-title,
 #footer-form {
-    background: #eee;
+    grid-area: footer-form;
+    background-color: #e9e9e9;
 }
 
 #dialogs-title {
+    background-color: #3f3f3f;
     display: flex;
     margin-bottom: 1px;
     justify-content: space-between;
     align-items: center;
     grid-area: dialogs-title;
-    color: #0048AA;
+    color: white;
     font-weight: bold;
     font-size: 2.0rem;
     border-radius: 0 10px 0 0;
@@ -177,11 +168,11 @@ body {
 }
 #dialogs-title a{
     text-decoration: none;
-    color: #0048AA;
+    color: white;
 }
 
 #dialogs-list {
-    background: white;
+    background-color: #e9e9e9;
     grid-area: dialogs-list;
     overflow-y: scroll;
 }
@@ -197,7 +188,9 @@ body {
 .dialog:hover {
     background: lightgray;
 }
-
+.last_mes{
+    color: black;
+}
 .dialog:hover {
     cursor: pointer;
 }
@@ -212,7 +205,7 @@ body {
 .title-text-dialogs a{
     text-decoration: none;
     font-weight: bold;
-    color: blue;
+    color: black;
     padding-left: 5px;
     white-space: nowrap;
     overflow-x: hidden;
@@ -269,7 +262,7 @@ body {
 }
 
 .you-message .message-content{
-    justify-items: end;
+    max-width: 50%;
 }
 
 
@@ -283,15 +276,19 @@ body {
     font-size: 1.6rem;
     margin-bottom: 5px;
 }
-
+.message-text p{
+    word-break: break-word;
+}
 .you-message .message-text {
-    background: #0048AA;
+    margin-top: 5px;
+    background: blueviolet;
     color: #eee;
-    border: 1px solid #0048AA;
+    border: 1px solid blueviolet;
     border-radius: 14px 14px 0 14px;
 }
 
 .other-message .message-text {
+    margin-top: 5px;
     background: #eee;
     color: #111;
     border: 1px solid #ddd;
@@ -302,8 +299,6 @@ body {
 }
 .you-message {
     justify-content: flex-end;
-    max-width: 350px;
-    margin-left: 100%;
 }
 .other-message {
     display: flex;
@@ -327,6 +322,9 @@ body {
 #area{
     width: 500px;
 }
+/*#area:focus{*/
+/*    border: 2px solid darkviolet;*/
+/*}*/
 /*.message-time {*/
 /*    font-size: 1.3rem;*/
 /*    color: #777;*/
@@ -339,11 +337,110 @@ body {
     border-radius: 6px;
     font-size: 1.4rem;
 }
+.transaction_form{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.transaction_form p{
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+    color: darkviolet;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.transaction_form form{
+    margin-left: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.transaction_form input{
+    width: 90%;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+}
+.transaction_form input:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(154, 18, 179, 0.3);
+
+}
+#transfer{
+    text-align: center;
+    font-size: 15px;
+    background-color: darkviolet;
+    color: white;
+    border: 2px solid darkviolet;
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 12px 10px 12px 10px;
+}
+#transfer:hover{
+    /*background-color: white;*/
+    /*color: darkviolet;*/
+    border: 2px solid #3f3f3f;
+}
+#transfer:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(154, 18, 179, 0.3);
+}
+.settings_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.settings_form form{
+    margin-top: 10px;
+}
+.settings_form p{
+    color: darkviolet;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.settings_form input{
+    display:block;
+    width: 100%;
+    font-size: 15px;
+    border: none;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    margin-top:10px;
+    border-radius: 5px;
+    margin-buttom:10px;
+}
+.settings_form button{
+    margin-top: 10px;
+}
+#file_pass:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(154, 18, 179, 0.3);
+}
+.settings_form input:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(154, 18, 179, 0.3);
+}
+#get_key{
+    text-align: center;
+    font-size: 15px;
+    background-color: darkviolet;
+    color: white;
+    border: 2px solid darkviolet;
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 10px 10px 10px 10px;
+}
 .keys{
     margin-top: 5%;
 }
 .keys p {
-    color: #0048AA;
+    color: darkviolet;
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -352,6 +449,24 @@ body {
     color: black;
     font-weight: bold;
     font-size: 1.5rem;
+}
+#send_create_dialog{
+    text-align: center;
+    font-size: 15px;
+    background-color: darkviolet;
+    color: white;
+    border: 2px solid darkviolet;
+    border-radius: 5px;
+    margin-top: 15px;
+    padding: 5px 10px 5px 10px;
+}
+#send_create_dialog:hover{
+    cursor: pointer;
+
+}
+#send_create_dialog:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(154, 18, 179, 0.3);
 }
 ::-webkit-scrollbar {
     display: none;
