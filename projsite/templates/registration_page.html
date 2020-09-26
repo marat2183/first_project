@@ -24,8 +24,8 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-4 col-sm-12">
                     <h3 class="text-center">Регистрация</h3>
-                    <p class="text-center mt-2">Если у вас уже есть аккаунт <a id="log_link" href="#">Войти</a></p>
-                    <form id="reg_form" >
+                    <p class="text-center mt-2">Если у вас уже есть аккаунт <a id="log_link" href="{% url 'login' %}">Войти</a></p>
+                    <form id="reg_form" >{% csrf_token %}
                         <div class="form-group mb-1" id="login_row">
                             <label for="login">Логин:</label>
                             <input type="text" class="form-control" placeholder="Введите логин" id="login">

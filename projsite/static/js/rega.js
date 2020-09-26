@@ -26,32 +26,84 @@ $(document).ready(function (event) {
            $("#login").css("border-bottom","2px solid #34F458");
         }
         else if (login === ''){
-            $("#login_row").append("<div id='login_form_invalid'></div>");
-            $("#login_form_invalid").html("Это поле озятельно для заполнения");
-            $("#login_form_invalid").show();
-            $("#login").css("border-bottom","2px solid #F90A0A");
-            error_login = true;
+            if ($("div").is("#login_form_invalid")){
+                $("#login_form_invalid").text("Это поле озятельно для заполнения");
+                $("#login_form_invalid").show()
+                $("#login").css("border-bottom","2px solid #F90A0A");
+                error_login = true;
+            }
+            else {
+                $("#login_row").append("<div id='login_form_invalid'></div>");
+                $("#login_form_invalid").html("Это поле озятельно для заполнения");
+                $("#login_form_invalid").show();
+                $("#login").css("border-bottom","2px solid #F90A0A");
+                error_login = true;
+            }
+            // $("#login_row").append("<div id='login_form_invalid'></div>");
+            // $("#login_form_invalid").html("Это поле озятельно для заполнения");
+            // $("#login_form_invalid").show();
+            // $("#login").css("border-bottom","2px solid #F90A0A");
+            // error_login = true;
         }
         else if (pattern.test(login) && login !== '' && login.length < 5){
-            $("#login_row").append("<div id='login_form_invalid'></div>");
-            $("#login_form_invalid").html("Логин содержит менее 5 символов");
-            $("#login_form_invalid").show();
-            $("#login").css("border-bottom","2px solid #F90A0A");
-            error_login = true;
+            if ($("div").is("#login_form_invalid")){
+                $("#login_form_invalid").text("Логин содержит менее 5 символов");
+                $("#login_form_invalid").show()
+                $("#login").css("border-bottom","2px solid #F90A0A");
+                error_login = true;
+            }
+            else{
+                $("#login_row").append("<div id='login_form_invalid'></div>");
+                $("#login_form_invalid").html("Логин содержит менее 5 символов");
+                $("#login_form_invalid").show();
+                $("#login").css("border-bottom","2px solid #F90A0A");
+                error_login = true;
+            }
+            // $("#login_row").append("<div id='login_form_invalid'></div>");
+            // $("#login_form_invalid").html("Логин содержит менее 5 символов");
+            // $("#login_form_invalid").show();
+            // $("#login").css("border-bottom","2px solid #F90A0A");
+            // error_login = true;
         }
         else if (pattern.test(login) && login !== '' && login.length >= 25){
-            $("#login_row").append("<div id='login_form_invalid'></div>");
-            $("#login_form_invalid").html("Логин содержит больше 24 символов");
-            $("#login_form_invalid").show();
-            $("#login").css("border-bottom","2px solid #F90A0A");
-            error_login = true;
+            if ($("div").is("#login_form_invalid")){
+                $("#login_form_invalid").text("Логин содержит больше 24 символов");
+                $("#login_form_invalid").show()
+                $("#login").css("border-bottom","2px solid #F90A0A");
+                error_login = true;
+            }
+            else{
+                $("#login_row").append("<div id='login_form_invalid'></div>");
+                $("#login_form_invalid").html("Логин содержит больше 24 символов");
+                $("#login_form_invalid").show();
+                $("#login").css("border-bottom","2px solid #F90A0A");
+                error_login = true;
+            }
+            // $("#login_row").append("<div id='login_form_invalid'></div>");
+            // $("#login_form_invalid").html("Логин содержит больше 24 символов");
+            // $("#login_form_invalid").show();
+            // $("#login").css("border-bottom","2px solid #F90A0A");
+            // error_login = true;
         }
         else {
-            $("#login_row").append("<div id='login_form_invalid'></div>");
-            $("#login_form_invalid").html("Логин содержит недопустимые символы");
-            $("#login_form_invalid").show();
-            $("#login").css("border-bottom","2px solid #F90A0A");
-            error_login = true;
+            if ($("div").is("#login_form_invalid")){
+                $("#login_form_invalid").text("Логин содержит недопустимые символы");
+                $("#login_form_invalid").show()
+                $("#login").css("border-bottom","2px solid #F90A0A");
+                error_login = true;
+            }
+            else{
+                $("#login_row").append("<div id='login_form_invalid'></div>");
+                $("#login_form_invalid").html("Логин содержит недопустимые символы");
+                $("#login_form_invalid").show();
+                $("#login").css("border-bottom","2px solid #F90A0A");
+                error_login = true;
+            }
+            // $("#login_row").append("<div id='login_form_invalid'></div>");
+            // $("#login_form_invalid").html("Логин содержит недопустимые символы");
+            // $("#login_form_invalid").show();
+            // $("#login").css("border-bottom","2px solid #F90A0A");
+            // error_login = true;
         }
      }
 
@@ -60,84 +112,212 @@ $(document).ready(function (event) {
         let password = $("#password").val()
         let retype_password = $("#second_password").val();
         if (password === ''){
-            $("#password_row").append("<div id='password_form_invalid'></div>");
-            $("#password_form_invalid").html("Это поле обязательно для заполнения");
-            $("#password_form_invalid").show();
-            $("#password").css("border-bottom","2px solid #F90A0A");
-            error_password = true;
+            if ($("div").is("#password_form_invalid")){
+                $("#password_form_invalid").text("Это поле обязательно для заполнения")
+                $("#password_form_invalid").show();
+                $("#password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            else{
+                $("#password_row").append("<div id='password_form_invalid'></div>");
+                $("#password_form_invalid").html("Это поле обязательно для заполнения");
+                $("#password_form_invalid").show();
+                $("#password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            // $("#password_row").append("<div id='password_form_invalid'></div>");
+            // $("#password_form_invalid").html("Это поле обязательно для заполнения");
+            // $("#password_form_invalid").show();
+            // $("#password").css("border-bottom","2px solid #F90A0A");
+            // error_password = true;
         }
         else if (pattern.test(password) && password !== '' && password_length > 9 && password.length <= 30){
             if (password !== retype_password){
-                $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
-                $("#confirm_password_form_invalid").html("Пароли не совпадают");
-                $("#confirm_password_form_invalid").show();
-                $("#password_confirm").css("border-bottom","2px solid #F90A0A");
-                error_password_confirm = true;
+                if ($("div").is("#confirm_password_form_invalid")){
+                    $("#confirm_password_form_invalid").text("Пароли не совпадают");
+                    $("#confirm_password_form_invalid").show();
+                    $("#password_confirm").css("border-bottom","2px solid #F90A0A");
+                    error_password_confirm = true;
+                }
+                else{
+                    $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+                    $("#confirm_password_form_invalid").html("Пароли не совпадают");
+                    $("#confirm_password_form_invalid").show();
+                    $("#password_confirm").css("border-bottom","2px solid #F90A0A");
+                    error_password_confirm = true;
+                }
+                // $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+                // $("#confirm_password_form_invalid").html("Пароли не совпадают");
+                // $("#confirm_password_form_invalid").show();
+                // $("#password_confirm").css("border-bottom","2px solid #F90A0A");
+                // error_password_confirm = true;
             }
             $("#password_form_invalid").hide();
             $("#password").css("border-bottom","2px solid #34F458");
         }
         else if (pattern.test(password) && password.length < 10) {
-            $("#password_row").append("<div id='password_form_invalid'></div>");
-            $("#password_form_invalid").html("Пароль содержит менее 10 символов");
-            $("#password_form_invalid").show();
-            $("#password").css("border-bottom","2px solid #F90A0A");
-            error_password = true;
+            if ($("div").is("#password_form_invalid")){
+                $("#password_form_invalid").text("Пароль содержит менее 10 символов");
+                $("#password_form_invalid").show();
+                $("#password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            else{
+                $("#password_row").append("<div id='password_form_invalid'></div>");
+                $("#password_form_invalid").html("Пароль содержит менее 10 символов");
+                $("#password_form_invalid").show();
+                $("#password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            // $("#password_row").append("<div id='password_form_invalid'></div>");
+            // $("#password_form_invalid").html("Пароль содержит менее 10 символов");
+            // $("#password_form_invalid").show();
+            // $("#password").css("border-bottom","2px solid #F90A0A");
+            // error_password = true;
         }
         else if (pattern.test(password) && password.length > 30) {
-            $("#password_row").append("<div id='password_form_invalid'></div>");
-            $("#password_form_invalid").html("Пароль содержит более 30 символов");
-            $("#password_form_invalid").show();
-            $("#password").css("border-bottom","2px solid #F90A0A");
-            error_password = true;
+            if ($("div").is("#password_form_invalid")){
+                $("#password_form_invalid").text("Пароль содержит более 30 символов");
+                $("#password_form_invalid").show();
+                $("#password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            else{
+                $("#password_row").append("<div id='password_form_invalid'></div>");
+                $("#password_form_invalid").html("Пароль содержит более 30 символов");
+                $("#password_form_invalid").show();
+                $("#password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            // $("#password_row").append("<div id='password_form_invalid'></div>");
+            // $("#password_form_invalid").html("Пароль содержит более 30 символов");
+            // $("#password_form_invalid").show();
+            // $("#password").css("border-bottom","2px solid #F90A0A");
+            // error_password = true;
         } else {
-            $("#password_row").append("<div id='password_form_invalid'></div>");
-            $("#password_form_invalid").html("Пароль содержит недопустимые символы");
-            $("#password_form_invalid").show();
-            $("#password").css("border-bottom","2px solid #F90A0A");
-            error_password = true;
+            if ($("div").is("#password_form_invalid")){
+                $("#password_form_invalid").text("Пароль содержит недопустимые символы");
+                $("#password_form_invalid").show();
+                $("#password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            else {
+                $("#password_row").append("<div id='password_form_invalid'></div>");
+                $("#password_form_invalid").html("Пароль содержит недопустимые символы");
+                $("#password_form_invalid").show();
+                $("#password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            // $("#password_row").append("<div id='password_form_invalid'></div>");
+            // $("#password_form_invalid").html("Пароль содержит недопустимые символы");
+            // $("#password_form_invalid").show();
+            // $("#password").css("border-bottom","2px solid #F90A0A");
+            // error_password = true;
         }
      }
      function check_confirm_password() {
         let password = $("#password").val();
         let retype_password = $("#second_password").val();
         if (retype_password === ''){
-            $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
-            $("#confirm_password_form_invalid").html("Это поле обязательно для заполнения");
-            $("#confirm_password_form_invalid").show();
-            $("#second_password").css("border-bottom","2px solid #F90A0A");
-            error_password_confirm = true;
+            if ($("div").is("#confirm_password_form_invalid")){
+                $("#confirm_password_form_invalid").text("Это поле обязательно для заполнения");
+                $("#confirm_password_form_invalid").show();
+                $("#second_password").css("border-bottom","2px solid #F90A0A");
+                error_password_confirm = true;
+            }
+            else{
+                $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+                $("#confirm_password_form_invalid").html("Это поле обязательно для заполнения");
+                $("#confirm_password_form_invalid").show();
+                $("#second_password").css("border-bottom","2px solid #F90A0A");
+                error_password_confirm = true;
+            }
+            // $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+            // $("#confirm_password_form_invalid").html("Это поле обязательно для заполнения");
+            // $("#confirm_password_form_invalid").show();
+            // $("#second_password").css("border-bottom","2px solid #F90A0A");
+            // error_password_confirm = true;
         }
          else if (pattern.test(retype_password) && retype_password.length < 10) {
-             $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
-             $("#confirm_password_form_invalid").html("Пароль содержит менее 10 символов");
-             $("#confirm_password_form_invalid").show();
-             $("#second_password").css("border-bottom","2px solid #F90A0A");
-             error_password = true;
+             if ($("div").is("#confirm_password_form_invalid")){
+                 $("#confirm_password_form_invalid").text("Пароль содержит менее 10 символов");
+                 $("#confirm_password_form_invalid").show();
+                 $("#second_password").css("border-bottom","2px solid #F90A0A");
+                 error_password = true;
+             }
+             else{
+                 $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+                 $("#confirm_password_form_invalid").html("Пароль содержит менее 10 символов");
+                 $("#confirm_password_form_invalid").show();
+                 $("#second_password").css("border-bottom","2px solid #F90A0A");
+                 error_password = true;
+             }
+             // $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+             // $("#confirm_password_form_invalid").html("Пароль содержит менее 10 символов");
+             // $("#confirm_password_form_invalid").show();
+             // $("#second_password").css("border-bottom","2px solid #F90A0A");
+             // error_password = true;
         }
         else if (pattern.test(retype_password) && retype_password.length > 30) {
-            $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
-            $("#confirm_password_form_invalid").html("Пароль содержит более 30 символов");
-            $("#confirm_password_form_invalid").show();
-            $("#second_password").css("border-bottom","2px solid #F90A0A");
-            error_password = true;
+            if ($("div").is("#confirm_password_form_invalid")){
+                $("#confirm_password_form_invalid").text("Пароль содержит более 30 символов");
+                $("#confirm_password_form_invalid").show();
+                $("#second_password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            else{
+                $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+                $("#confirm_password_form_invalid").html("Пароль содержит более 30 символов");
+                $("#confirm_password_form_invalid").show();
+                $("#second_password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            // $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+            // $("#confirm_password_form_invalid").html("Пароль содержит более 30 символов");
+            // $("#confirm_password_form_invalid").show();
+            // $("#second_password").css("border-bottom","2px solid #F90A0A");
+            // error_password = true;
         }
         else if (password === retype_password && retype_password !== '' && pattern.test(retype_password) && retype_password.length >= 10 && retype_password.length <= 30) {
            $("#confirm_password_form_invalid").hide();
            $("#second_password").css("border-bottom","2px solid #34F458");
         }
         else if (password !== retype_password && retype_password !== '' && pattern.test(retype_password) && retype_password.length >= 10 && retype_password.length <= 30){
-            $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
-            $("#confirm_password_form_invalid").html("Пароли не совпадают");
-            $("#confirm_password_form_invalid").show();
-            $("#second_password").css("border-bottom","2px solid #F90A0A");
+            if ($("div").is("#confirm_password_form_invalid")){
+                $("#confirm_password_form_invalid").text("Пароли не совпадают");
+                $("#confirm_password_form_invalid").show();
+                $("#second_password").css("border-bottom","2px solid #F90A0A");
+            }
+            else{
+                $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+                $("#confirm_password_form_invalid").html("Пароли не совпадают");
+                $("#confirm_password_form_invalid").show();
+                $("#second_password").css("border-bottom","2px solid #F90A0A");
+            }
+            // $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+            // $("#confirm_password_form_invalid").html("Пароли не совпадают");
+            // $("#confirm_password_form_invalid").show();
+            // $("#second_password").css("border-bottom","2px solid #F90A0A");
         }
         else {
-            $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
-            $("#confirm_password_form_invalid").html("Пароль содержит недопустимые символы");
-            $("#confirm_password_form_invalid").show();
-            $("#second_password").css("border-bottom","2px solid #F90A0A");
-            error_password_confirm = true;
+            if ($("div").is("#confirm_password_form_invalid")){
+                $("#confirm_password_form_invalid").text("Пароль содержит недопустимые символы");
+                $("#confirm_password_form_invalid").show();
+                $("#second_password").css("border-bottom","2px solid #F90A0A");
+                error_password_confirm = true;
+            }
+            else{
+                $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+                $("#confirm_password_form_invalid").html("Пароль содержит недопустимые символы");
+                $("#confirm_password_form_invalid").show();
+                $("#second_password").css("border-bottom","2px solid #F90A0A");
+                error_password_confirm = true;
+            }
+            // $("#password_confirm_row").append("<div id='confirm_password_form_invalid'></div>");
+            // $("#confirm_password_form_invalid").html("Пароль содержит недопустимые символы");
+            // $("#confirm_password_form_invalid").show();
+            // $("#second_password").css("border-bottom","2px solid #F90A0A");
+            // error_password_confirm = true;
         }
      }
     function create_account(password) {
@@ -215,9 +395,9 @@ $(document).ready(function (event) {
             });
         }else{
             console.log('bad')
-            $("#reg_data_send").before('<div id="form_invalid" class="mb-2"></div>')
-            $("#form_invalid").html("Тестовая валидация");
-            $("#form_invalid").show().delay( 1500 ).fadeOut( 400 );
+            // $("#reg_data_send").before('<div id="form_invalid" class="mb-2"></div>')
+            // $("#form_invalid").html("Тестовая валидация");
+            // $("#form_invalid").show().delay( 1500 ).fadeOut( 400 );
         }
         // login = $('#login').val();
         // password = $('#password').val();

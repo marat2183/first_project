@@ -1,42 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="../static/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="../static/css/bootstrap-utilities.css">
-    <link rel="stylesheet" href="../static/css/style_test.css">
-    <script src="../static/js/bootstrap.bundle.js"></script>
-    <script src="../static/js/bootstrap.esm.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-utilities.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
+    <script src="{% static 'js/test1.js' %}"></script>
+    <script src="{% static 'js/test3.js' %}"></script>
+    <script src="{% static 'js/web3.js' %}"></script>
+    <script src="{% static 'js/nacl.js' %}"></script>
+    <script src="{% static 'js/nacl-util.js' %}"></script>
 </head>
 <body>
     <div class="reg_form">
         <div class="container h-100 d-flex">
             <div class="row justify-content-center align-items-center">
-                <div class="col-lg-4 col-sm-10">
+                <div class="col-lg-4 col-sm-12">
                     <h3 class="text-center">Регистрация</h3>
-                    <form>
-                        <div class="form-group">
+                    <p class="text-center mt-2">Если у вас уже есть аккаунт <a id="log_link" href="{% url 'login' %}">Войти</a></p>
+                    <form id="reg_form" >
+                        <div class="form-group mb-1" id="login_row">
                             <label for="login">Логин:</label>
-                            <input type="text" class="form-control mb-3" placeholder="Введите логин" id="login">
+                            <input type="text" class="form-control" placeholder="Введите логин" id="login">
+                            <small class="form-text text-muted">
+                              Логин должен быть длиной от 5 до 24 символов.
+                            </small>
+<!--                                <div id="login_form_invalid"></div>-->
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-1" id="password_row">
                             <label for="password">Пароль:</label>
-                            <input type="password" class="form-control mb-3" placeholder="Введите пароль" id="password">
+                            <input type="password" class="form-control" placeholder="Введите пароль" id="password">
+                            <small class="form-text text-muted">
+                              Пароль должен быть длиной от 10 до 30 символов.
+                            </small>
+<!--                                <div id="password_form_invalid"></div>-->
                         </div>
-                        <div class="form-group">
-                            <label for="password_confirm">Повторите пароль:</label>
-                            <input type="password" class="form-control mb-4" placeholder="Введите пароль ещё раз" id="password_confirm">
+                        <div class="form-group mb-2" id="password_confirm_row">
+                            <label for="second_password">Повторите пароль:</label>
+                            <input type="file" class="form-control" placeholder="Введите пароль ещё раз" id="second_password">
+<!--                                <small class="form-text text-muted">-->
+<!--                                  Пароль должен быть длиной от 8 до 10 символов.-->
+<!--                                </small>-->
+<!--                                <div id="confirm_password_form_invalid"></div>-->
                         </div>
-                        <button type="submit" class="btn btn-primary text-center">Submit</button>
+{#                        <div id="form_invalid" class="mb-2"></div>#}
+                        <button type="submit" class="btn btn-primary btn-block" id="reg_data_send">Зарегистрироваться</button>
                     </form>
-
+                    <div id="myLink"></div>
                 </div>
+{#                <div class="col-lg-12">#}
+{#                    <div id="myLink"></div>#}
+{#                </div>#}
             </div>
         </div>
-    <div>
+    </div>
+<script src="{% static 'js/rega.js' %}"></script>
 </body>
 </html>

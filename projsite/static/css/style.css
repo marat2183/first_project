@@ -4,7 +4,17 @@ body{
 .reg_form{
 	height: 100vh;
 }
-#reg_data_send{
+#login_row input:focus,#password_row input:focus{
+    border: 0.2px solid rgba(154, 18, 179, 0.2);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(154, 18, 179, 0.3);
+}
+#password_confirm_row input:focus{
+    border: 0.2px solid rgba(154, 18, 179, 0.2);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(154, 18, 179, 0.3);
+}
+#reg_data_send, #send_data{
 	margin-top: 35px;
 	background-color: darkviolet;
     border-color: darkviolet;
