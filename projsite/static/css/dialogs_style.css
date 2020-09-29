@@ -64,9 +64,18 @@ body {
     color: #ddd;
     font-size: 1.3rem;
     border-bottom: 1px solid #3f3f3f;
-    padding: 20px 20px 20px 15px;
+    /*padding: 20px 20px 20px 15px;*/
 }
-
+.menu a{
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px 20px 15px;
+    font-weight: bold;
+    color: #eee;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
 
 .menu.active,
 .menu:hover {
@@ -178,8 +187,21 @@ body {
 }
 .dialog {
     display: grid;
-    color: #002C88;
+    /*color: #002C88;*/
+    /*font-size: 1.3rem;*/
+    /*border-bottom: 1px solid lightgray;*/
+    /*padding: 20px 20px 20px 15px;*/
+}
+.dialog a{
+    width: 100%;
+    height: 100%;
     font-size: 1.3rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
     border-bottom: 1px solid lightgray;
     padding: 20px 20px 20px 15px;
 }

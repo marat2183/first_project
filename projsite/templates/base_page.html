@@ -21,7 +21,7 @@
     <script src="{% static 'js/nacl.js' %}"></script>
     <script src="{% static 'js/nacl-util.js' %}"></script>
     <script src="{% static 'js/test3.js' %}"></script>
-    <script src="{% static 'js/link_check.js' %}"></script>
+{#    <script src="{% static 'js/link_check.js' %}"></script>#}
 
 
 {#    <script src="{% static 'js/1.js' %}"></script>#}
@@ -35,13 +35,13 @@
         </div>
         <div id="menu-list">
             <div class="menu">
-                <div class="title-text"><a href="{% url 'dialogs' %}">Диалоги</a></div>
+                <a href="{% url 'dialogs' %}">Диалоги</a>
             </div>
             <div class="menu">
-                <div class="title-text"><a href="{% url 'transfer' %}">Перевести</a></div>
+                <a href="{% url 'transfer' %}">Перевести</a>
             </div>
             <div class="menu">
-                <div class="title-text"><a href="{% url 'settings' %}">Настройки</a></div>
+                <a href="{% url 'settings' %}">Настройки</a>
             </div>
         </div>
         <div id="exit-link-container">
