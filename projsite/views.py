@@ -183,7 +183,6 @@ def login(request):
 def dialogs(request):
     if 'user_id' in request.session.keys():
     # if request.user.is_authenticated:
-        print(request.session.get('user_id'))
         info_balance = Users.objects.get(id=request.session['user_id'])
         balance = getBalance(info_balance.address)
         if request.method == "GET" and 'did' in request.GET and 'user_id' in request.session.keys() and 'to_do' not in request.POST.keys():

@@ -58,16 +58,16 @@ $(document).ready(function () {
             var key_valid;
             try {
                 let valid = validate_account(password, result);
-                let div = document.createElement('div');
-                div.className = "keys";
-                first_part = "<p>Ваш адрес: <strong id='text'>" + valid.address + "</strong></p>";
-                second_part = "<p>Приватный ключ: <strong id='text'>" + valid.privateKey.slice(2) + "</strong></p>";
-                div.innerHTML = first_part + second_part
-                let info = '<p>' + valid.privateKey + '</p>'
-                console.log(valid.address)
-                console.log(valid.privateKey)
-                info_block = document.querySelector("#dialogs-list")
-                info_block.append(div);
+                // let div = document.createElement('div');
+                // div.className = "keys";
+                // first_part = "<p>Ваш адрес: <strong id='text'>" + valid.address + "</strong></p>";
+                // second_part = "<p>Приватный ключ: <strong id='text'>" + valid.privateKey.slice(2) + "</strong></p>";
+                // div.innerHTML = first_part + second_part
+                // let info = '<p>' + valid.privateKey + '</p>'
+                // console.log(valid.address)
+                // console.log(valid.privateKey)
+                // info_block = document.querySelector("#dialogs-list")
+                // info_block.append(div);
                 navigator.clipboard.writeText(valid.privateKey.substring(2, valid.privateKey.length))
                   .then(() => {
                     console.log('Все ок ')
