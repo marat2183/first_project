@@ -196,7 +196,7 @@ def dialogs(request):
                 reciever = second_query.reciever
             elif second_query.reciever == current_user:
                 reciever = second_query.sender
-            return render(request, template_name='messages_page.html', context={"messages": res, "user_login": current_user, "reciever": reciever, "balance": balance})
+            return render(request, template_name='messages_page.html', context={"messages": res, "user_login": sender_login, "reciever": reciever, "balance": balance})
         elif request.is_ajax() and request.method == 'POST' and 'to_do' in request.POST.keys() and request.POST[
             'to_do'] == 'load_messages':
             did = request.GET['did']
