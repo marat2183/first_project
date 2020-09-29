@@ -360,7 +360,7 @@ body {
 .transaction_form input{
     width: 90%;
     font-size: 15px;
-    border: none;
+    border: 1px solid #ced4da;
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -408,7 +408,7 @@ body {
     display:block;
     width: 100%;
     font-size: 15px;
-    border: none;
+    border: 1px solid #ced4da;
     padding-top: 7.5px;
     padding-bottom: 7.5px;
     margin-top:10px;
@@ -470,4 +470,16 @@ body {
 }
 ::-webkit-scrollbar {
     display: none;
+}
+#valid_key{
+    margin-top: 10px;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+}
+#valid_key_error{
+    margin-top: 10px;
+    color: red;
+    text-align: center;
+    font-size: 15px;
 }

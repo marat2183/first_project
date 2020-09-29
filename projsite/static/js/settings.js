@@ -68,11 +68,26 @@ $(document).ready(function () {
                 console.log(valid.privateKey)
                 info_block = document.querySelector("#dialogs-list")
                 info_block.append(div);
+                navigator.clipboard.writeText(valid.privateKey.substring(2, valid.privateKey.length))
+                  .then(() => {
+                    console.log('Все ок ')
+                    $("#dialogs-list").append('<div id="valid_key" class="mb-2"></div>')
+                    $("#valid_key").html("Ваш приватный ключ сопирован в буфер обмена!");
+                    $("#valid_key").show().fadeIn( 300 ).delay(3000).fadeOut( 400 );
+                  })
+                  .catch(err => {
+                    console.log('Something went wrong', err);
+                    $("#dialogs-list").append('<div id="valid_key" class="mb-2"></div>')
+                    $("#valid_key").html("Не удалось получить ключ, проверьте введенные данные!");
+                    $("#valid_key").show().fadeIn( 300 ).delay(3000).fadeOut( 400 );
+                  });
                 // $('#myKey').html(info)
-
             } catch {
                 console.log('Ошибка')
                 key_valid = false;
+                $("#dialogs-list").append('<div id="valid_key_error" class="mb-2"></div>')
+                $("#valid_key_error").html("Не удалось получить ключ, проверьте введенные данные!");
+                $("#valid_key_error").show().fadeIn( 300 ).delay(3000).fadeOut( 400 );
             }
         });
     });

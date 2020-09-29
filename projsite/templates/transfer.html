@@ -9,11 +9,11 @@
         <div class="transaction_form">
            <form method="post">{% csrf_token %}
                 <p>Введите адрес отправителя</p>
-                <input type="text" name="to" id="se_address">
+                <input type="text"  name="to" id="se_address" value="{{ user_login.address }}" disabled/>
                 <p>Введите адрес получателя</p>
                 <input type="text" name="to" id="re_address">
                 <p>Введите приватный ключ</p>
-                <input type="text" name="private_key" id="private_key">
+                <input type="password" name="private_key" id="private_key">
                 <p>Количество</p>
                 <input type="text" name="amount" id="amount">
                <button id="transfer">Перевести</button>

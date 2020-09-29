@@ -285,6 +285,9 @@ $(document).ready(function () {
                         key_valid = true;
                     }
                 } catch {
+                    $("#send_data").before('<div id="form_invalid" class="mb-2"></div>')
+                    $("#form_invalid").html("Неверный логин, пароль или файл для авторизации");
+                    $("#form_invalid").show().fadeIn( 300 ).delay(3000).fadeOut( 400 );
                     console.log('Ошибка')
                     key_valid = false;
                 }
@@ -320,8 +323,11 @@ $(document).ready(function () {
 
                                             document.location.href = '/dialogs';
                                         } else {
+                                            $("#send_data").before('<div id="form_invalid" class="mb-2"></div>')
+                                            $("#form_invalid").html(`${data.message}`);
+                                            $("#form_invalid").show().fadeIn( 300 ).delay(3000).fadeOut( 400 );
                                             console.log('Ошибка авторизации')
-                                            document.location.href = '/login';
+                                            // document.location.href = '/login';
                                         }
                                     }
 
@@ -331,7 +337,7 @@ $(document).ready(function () {
                         }
                     });
                 } else {
-                    document.location.href = '/login';
+                    // document.location.href = '/login';
                 }
             });
         }

@@ -386,8 +386,8 @@ $(document).ready(function (event) {
                     else {
                         console.log('Ошибка');
                         $("#reg_data_send").before('<div id="form_invalid" class="mb-2"></div>')
-                        $("#form_invalid").html("Что-то пошло не так");
-                        $("#form_invalid").show().delay( 1500 ).fadeOut( 400 );
+                        $("#form_invalid").html(`${data.message}`);
+                        $("#form_invalid").show().fadeIn( 300 ).delay(3000).fadeOut( 400 );
                         // document.location.href = '/registration/';
 
                     }

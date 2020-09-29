@@ -115,10 +115,10 @@ def registration(request):
                         result = {'message': 'ok'}
                         return HttpResponse(json.dumps(result), content_type='application/json')
                     except:
-                        result = {'message': 'bad'}
+                        result = {'message': 'Такой пользователь уже существует, введите другой логин'}
                         return HttpResponse(json.dumps(result), content_type='application/json')
                 else:
-                    result = {'message': 'bad'}
+                    result = {'message': 'Введены некорректные данные. Попробуйте снова.'}
                     return HttpResponse(json.dumps(result), content_type='application/json')
             else:
                 result = {'message': 'bad'}
@@ -164,10 +164,12 @@ def login(request):
             key_vaild = check_crypto(word, user_address, user_login)
             if res and key_vaild:
                 request.session['user_id'] = res.id
+                request.session['public_key'] = res.address
+                print('address', request.session['public_key'])
                 data = {'message': 'ok'}
                 return HttpResponse(json.dumps(data), content_type='application/json')
             else:
-                data = {'message': 'bad'}
+                data = {'message': '"Неверный логин, пароль или файл для авторизации"'}
                 return HttpResponse(json.dumps(data), content_type='application/json')
         elif request.method == "POST" and 'login' in request.POST.keys() and 'password' not in request.POST.keys():
             user_login = request.POST['login']
@@ -229,6 +231,7 @@ def dialogs(request):
                 res = Dialogs.objects.filter(
                     (Q(sender=user_login)) | (Q(reciever=user_login))
                 )
+                res = res.order_by('-did')
                 for i in res:
                     i.did = str(i.did)
                 return render(request, template_name='dialogs_for_js.html',
@@ -242,7 +245,7 @@ def dialogs(request):
                 res = Dialogs.objects.filter(
                     (Q(sender=user_login)) | (Q(reciever=user_login))
                 )
-                # print('данные', len(res))
+                res = res.order_by('-did')
                 for i in res:
                     i.did = str(i.did)
                 # print(res[0].sender, res[0].last_mes())
