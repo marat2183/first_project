@@ -47,6 +47,15 @@
         <div id="exit-link-container">
             <a href="{% url 'logout' %}">Выйти</a>
         </div>
+{#         <div class="menu_test">#}
+{#            <div class="menu-list-test">#}
+{#               <form method="post">{% csrf_token %}#}
+{#                <p>Введите логин собеседника</p>#}
+{#                <input type="text" name="reciever" id="reciever">#}
+{#                <button id="send_create_dialog">Cоздать</button>#}
+{#            </form>#}
+{#            </div>#}
+{#        </div>#}
         {% block content %}
             Text
         {% endblock %}

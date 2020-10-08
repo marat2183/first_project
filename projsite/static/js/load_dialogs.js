@@ -2,10 +2,10 @@ $(document).ready(function () {
     const web3 = new Web3(Web3.givenProvider || "https://ropsten.infura.io/v3/b70352c9625a4e9fb70c4a533997ade1")
     let currentLocation = window.location.href.toString().split(window.location.host)[1];
     function financialMfil(numMfil) {
-        return Number.parseFloat(numMfil / 1e18).toFixed(18);
+        return Number.parseFloat(numMfil / 1e7).toFixed(7);
     }
     const updateBal = async (client_address) => {
-        let contractAddress = "0xdc549d811ae5e7f66dbfd7a6c781b33e6182ee5f";
+        let contractAddress = "0x7cb53602e6407c9126c3261a26a55004d0398606";
         const contractABI = [
               {
                 "constant":true,

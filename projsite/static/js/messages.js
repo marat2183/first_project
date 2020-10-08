@@ -1,10 +1,36 @@
 $(document).ready(function () {
     const web3 = new Web3(Web3.givenProvider || "https://ropsten.infura.io/v3/b70352c9625a4e9fb70c4a533997ade1")
     function financialMfil(numMfil) {
-        return Number.parseFloat(numMfil / 1e18).toFixed(18);
+        return Number.parseFloat(numMfil / 1e7).toFixed(7);
     }
+    let currentLocation = window.location.href.toString().split(window.location.host)[1];
+    function load_message () {
+        // $('#dialogs-list').css({"visibility": "hidden", "background-color": "#e9e9e9"});
+        $.ajax({
+            type: "POST",
+            url: currentLocation,
+            dataType: 'html',
+            data: {to_do: 'load_messages'},
+            success: function (code) {
+                if (code !== $('#dialogs-list').html()){
+                    // $('#dialog').remove();
+                    let old = $('#dialogs-list').html().replace('\n', '');
+                    let new_mes = code.replace('\n', '');
+                    console.log(new_mes.replace(old, ''));
+                    $('#dialogs-list').html(code);
+                    $("#dialogs-list").scrollTop($("#dialogs-list").prop('scrollHeight'));
+                    // $('#dialogs-list').css({"visibility": "visible"});
+                    // $("#dialogs-list").scrollTop($("#dialogs-list")).prop('scrollHeight').animate({duration : 370, easing: "linear"});
+                }
+                // $('#dialogs-list').css({"visibility": "visible","background-color": "#e9e9e9"});
+                console.log('ok')
+            }
+        });
+        updateBalance()
+    }
+    load_message();
     const updateBal = async (client_address) => {
-        let contractAddress = "0xdc549d811ae5e7f66dbfd7a6c781b33e6182ee5f";
+        let contractAddress = "0x7cb53602e6407c9126c3261a26a55004d0398606";
         const contractABI = [
               {
                 "constant":true,
@@ -42,38 +68,6 @@ $(document).ready(function () {
             }
         });
     }
-    let currentLocation = window.location.href.toString().split(window.location.host)[1];
-    function load_message () {
-        $.ajax({
-            type: "POST",
-            url: currentLocation,
-            dataType: 'html',
-            data: {to_do: 'load_messages'},
-            success: function (code) {
-                $('#dialog').remove()
-                if (code !== $('#dialogs-list').html()){
-                    $('#dialog').remove()
-                    $('#dialogs-list').html(code)
-                    $("#dialogs-list").scrollTop($("#dialogs-list").prop('scrollHeight'));
-                }
-                // else{
-                //     console.log('не совпадает')
-                //     console.log('current')
-                //     console.log($('#dialogs-list').html())
-                //     // newMes = code.replace($('#dialogs-list').html(), '')
-                //     // console.log('new')
-                //     // console.log(newMes)
-                //     console.log(code)
-                //     $('#dialogs-list').html(code)
-                // }
-                // $('#dialogs-list').html(code)
-                // $("#dialogs-list").scrollTop($("#dialogs-list").prop('scrollHeight'));
-                console.log('ok')
-            }
-        });
-        updateBalance()
-    }
-    load_message()
     $('#send_message').click(function (event) {
         event.preventDefault();
         let currentLocation = window.location.href.toString().split(window.location.host)[1];

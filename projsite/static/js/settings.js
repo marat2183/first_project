@@ -1,10 +1,17 @@
 $(document).ready(function () {
     const web3 = new Web3(Web3.givenProvider || "https://ropsten.infura.io/v3/b70352c9625a4e9fb70c4a533997ade1")
         function financialMfil(numMfil) {
-        return Number.parseFloat(numMfil / 1e18).toFixed(18);
+        return Number.parseFloat(numMfil / 1e7).toFixed(7);
+    }
+    function copyToClipboard(text) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(text).select();
+        document.execCommand("copy");
+        $temp.remove();
     }
     const updateBal = async (client_address) => {
-        let contractAddress = "0xdc549d811ae5e7f66dbfd7a6c781b33e6182ee5f";
+        let contractAddress = "0x7cb53602e6407c9126c3261a26a55004d0398606";
         const contractABI = [
               {
                 "constant":true,
@@ -58,30 +65,13 @@ $(document).ready(function () {
             var key_valid;
             try {
                 let valid = validate_account(password, result);
-                // let div = document.createElement('div');
-                // div.className = "keys";
-                // first_part = "<p>Ваш адрес: <strong id='text'>" + valid.address + "</strong></p>";
-                // second_part = "<p>Приватный ключ: <strong id='text'>" + valid.privateKey.slice(2) + "</strong></p>";
-                // div.innerHTML = first_part + second_part
-                // let info = '<p>' + valid.privateKey + '</p>'
-                // console.log(valid.address)
-                // console.log(valid.privateKey)
-                // info_block = document.querySelector("#dialogs-list")
-                // info_block.append(div);
-                navigator.clipboard.writeText(valid.privateKey.substring(2, valid.privateKey.length))
-                  .then(() => {
-                    console.log('Все ок ')
-                    $("#dialogs-list").append('<div id="valid_key" class="mb-2"></div>')
-                    $("#valid_key").html("Ваш приватный ключ сопирован в буфер обмена!");
-                    $("#valid_key").show().fadeIn( 300 ).delay(3000).fadeOut( 400 );
-                  })
-                  .catch(err => {
-                    console.log('Something went wrong', err);
-                    $("#dialogs-list").append('<div id="valid_key" class="mb-2"></div>')
-                    $("#valid_key").html("Не удалось получить ключ, проверьте введенные данные!");
-                    $("#valid_key").show().fadeIn( 300 ).delay(3000).fadeOut( 400 );
-                  });
-                // $('#myKey').html(info)
+                console.log('valid')
+                console.log(valid.privateKey.slice(2))
+                copyToClipboard(valid.privateKey.slice(2));
+                console.log('Все ок ')
+                $("#dialogs-list").append('<div id="valid_key" class="mb-2"></div>')
+                $("#valid_key").html("Ваш приватный ключ сопирован в буфер обмена!");
+                $("#valid_key").show().fadeIn( 300 ).delay(3000).fadeOut( 400 );
             } catch {
                 console.log('Ошибка')
                 key_valid = false;

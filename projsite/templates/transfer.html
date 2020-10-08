@@ -8,8 +8,15 @@
     <div id="dialogs-list">
         <div class="transaction_form">
            <form method="post">{% csrf_token %}
-                <p>Введите адрес отправителя</p>
-                <input type="text"  name="to" id="se_address" value="{{ user_login.address }}" disabled/>
+               <p>Введите адрес отправителя</p>
+               <div class="sender_addr">
+                    <input type="text"  name="to" id="se_address" value="{{ user_login.address }}" disabled/>
+                    <div class="container">
+                      <button class="clip_btn">
+                          <img src="../static/images/clipart58559.png" alt="Snow">
+                      </button>
+                    </div>
+               </div>
                 <p>Введите адрес получателя</p>
                 <input type="text" name="to" id="re_address">
                 <p>Введите приватный ключ</p>

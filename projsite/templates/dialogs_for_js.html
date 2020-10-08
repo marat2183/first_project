@@ -1,11 +1,13 @@
-{% for i in Dialogs %}
-    <div class="dialog">
-        {% if user_login.login == i.reciever %}
-                <a href="/dialogs?did={{ i.did }}">Диалог с {{ i.sender }}</a>
-{#                <p class="last_mes">{{i.last_mes}}</p>#}
-        {% else %}
-                <a href="/dialogs?did={{ i.did }}">Диалог с {{ i.reciever }}</a>
-{#                <p class="last_mes">{{i.last_mes}}</p>#}
-        {% endif %}
-    </div>
-{% endfor %}
+        {% for i in Dialogs %}
+
+            <div class="dialog">
+                {% if user_login.login == i.reciever %}
+                        <a href="/dialogs?did={{ i.did }}">Диалог с {{ i.sender }}</a>
+        {#                <p class="last_mes">{{i.last_mes}}</p>#}
+                {% else %}
+                        <a href="/dialogs?did={{ i.did }}">Диалог с {{ i.reciever }}</a>
+        {#                <p class="last_mes">{{i.last_mes}}</p>#}
+                {% endif %}
+            </div>
+
+        {% endfor %}

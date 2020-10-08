@@ -1,10 +1,43 @@
 $(document).ready(function () {
     const web3 = new Web3(Web3.givenProvider || "https://ropsten.infura.io/v3/b70352c9625a4e9fb70c4a533997ade1")
     function financialMfil(numMfil) {
-        return Number.parseFloat(numMfil / 1e18).toFixed(18);
+        return Number.parseFloat(numMfil / 1e7).toFixed(7);
     }
+    function updateDialogs () {
+        let active = false;
+        if ($("div.menu_test").hasClass("menu_test_active")){
+            active = true;
+        }
+        $.ajax({
+            type: "POST",
+            url: '/dialogs/',
+            dataType: 'html',
+            data: {message: 'load_dialogs'},
+            success: function (code) {
+                if (code.indexOf('dialog') >= 0 ) {
+                    if (code !== $('#dialogs-list').html()){
+                        console.log(code)
+                        console.log($('#dialogs-list').html())
+                        $('#dialog').remove();
+                        $('#dialogs-list').html(code);
+                    }
+                    else{
+                        console.log('совпадают')
+                    }
+                    if (active){
+                        $(".menu_test").addClass('menu_test_active');
+                    }
+                }
+                else{
+                    document.location.href = '/login';
+                }
+            }
+        });
+        updateBalance()
+    }
+    updateDialogs();
     const updateBal = async (client_address) => {
-        let contractAddress = "0xdc549d811ae5e7f66dbfd7a6c781b33e6182ee5f";
+        let contractAddress = "0x7cb53602e6407c9126c3261a26a55004d0398606";
         const contractABI = [
               {
                 "constant":true,
@@ -42,8 +75,12 @@ $(document).ready(function () {
             }
         });
     }
-    $('#send_create_dialog').click(function (event) {
+    $("#new-dialog-container").click(function () {
+        $('.menu_test').toggleClass('menu_test_active');
+    });
+    $('#send_create_dialog').on( 'click', function (event) {
         event.preventDefault();
+        console.log('Кнопка');
         let reciever = $('#reciever').val();
         console.log(reciever);
         $.ajax({
@@ -64,17 +101,5 @@ $(document).ready(function () {
             }
         });
     });
-    window.setInterval(function () {
-        $.ajax({
-            type: "POST",
-            url: '/dialogs/',
-            dataType: 'html',
-            data: {message: 'load_dialogs'},
-            success: function (code) {
-                $('#dialog').remove()
-                $('#dialogs-list').html(code)
-            }
-        });
-        updateBalance()
-    },5000)
+    window.setInterval(updateDialogs,5000);
 });
